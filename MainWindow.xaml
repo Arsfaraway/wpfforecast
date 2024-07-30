@@ -1,0 +1,338 @@
+﻿<Window x:Class="WeathForecast.MainWindow"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:local="clr-namespace:WeathForecast"
+        mc:Ignorable="d"
+        Title="MainWindow" 
+        Height="650" 
+        Width="1000"
+        Background="Transparent"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        >
+
+    <Grid Cursor="">
+        <Border Height="650"
+                Width="1000"
+                Background="#F7C7B1"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                CornerRadius="30"
+                BorderBrush="#AD4A2B"
+                
+                BorderThickness="7" />
+
+        <Grid>
+            <Border x:Name="BorderCityImageFirst"
+                    BorderBrush="#AD4A2B" 
+                    BorderThickness="7"
+                    CornerRadius="15" 
+                    Visibility="Hidden"
+                    Margin="40,40,740,390">
+                <Border CornerRadius="15" 
+                        ClipToBounds="True" 
+                        Margin="-47,-47,-47,-47"
+                        Width="210"
+                        Height="210"
+                    >
+                    <Border.Background>
+                        <VisualBrush Stretch="UniformToFill">
+                            <VisualBrush.Visual>
+                                <Image Source="Images/icons8-cityscape-at-dusk-96.png"
+                                    x:Name="PhotoCityXAML"/>
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </Border.Background>
+                </Border>
+            </Border>
+
+            <Border x:Name="BorderCityImageSecond"
+                    BorderBrush="#AD4A2B" 
+                    BorderThickness="7"
+                    CornerRadius="15" 
+                    Visibility="Hidden"
+                    Margin="40,40,740,390"
+                    >
+                <Border CornerRadius="15" 
+                        ClipToBounds="True" 
+                        Margin="-47,-47,-47,-47"
+                        Width="210"
+                        Height="210"
+                        >
+                    <Border.Background>
+                        <VisualBrush Stretch="UniformToFill">
+                            <VisualBrush.Visual>
+                                <Image Source="Images/icons8-cityscape-at-dusk-96.png"
+                           x:Name="PhotoCityXAMLSecond"/>
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </Border.Background>
+                </Border>
+            </Border>
+
+            <Border x:Name="BorderCityImageThird"
+                BorderBrush="#AD4A2B" 
+                BorderThickness="7"
+                CornerRadius="15" 
+                Visibility="Visible"
+                Margin="40,40,740,390">
+                <Image Source="Images/icons8-cityscape-at-dusk-96.png"
+                   x:Name="PhotoCityXAMLThird"
+                   Height="300"
+                   Width="300"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Stretch="Uniform" Cursor=""
+                />
+            </Border>
+        </Grid>
+
+
+        <DockPanel Margin="315,75,131,395">
+            <StackPanel Orientation="Horizontal" 
+                        Height="117"
+                        DockPanel.Dock="Top" 
+                        Margin="0,0,0,10" Cursor="">
+
+                <Border BorderBrush="#AD4A2B"
+                        BorderThickness="2"
+                        CornerRadius="10"
+                        Background="#F7C7B1"
+                        Margin="12,0,10,0" 
+                        Width="400" 
+                        Height="40" 
+                        
+                        Cursor="Hand"
+                        >
+                    <TextBox x:Name="SearchTextBox" 
+                         Width="370" Height="30" 
+                         Margin="9,0,10,0" 
+                         FontSize="20"
+                         VerticalAlignment="Center" 
+                         HorizontalAlignment="Left"
+                         TextAlignment="Center"
+                         BorderThickness="0"
+                         Foreground="#AD4A2B"
+                         Background="#F7C7B1"
+                         CaretBrush="#AD4A2B"
+                         KeyDown="SearchTextBox_KeyDown"
+                         Cursor=""
+                         />
+                </Border>
+
+                <Image Source="Images/icons8-flying-duck-50.png" 
+                       Width="70" 
+                       Height="70" 
+                       VerticalAlignment="Center" 
+                       HorizontalAlignment="Left"
+                       Margin="5,0,0,0"
+                       Cursor="Hand" 
+                       MouseLeftButtonDown="SearchCityForecast"/>
+            </StackPanel>
+        </DockPanel>
+
+
+        <Image Source="Images/icons8-shutdown-96.png"
+               Width="50"
+               Height="50"
+               VerticalAlignment="Top"
+               HorizontalAlignment="Right"
+               Margin="0,40,40,0"
+               Cursor="Hand" 
+               MouseLeftButtonDown="CloseApp"
+               />
+        <TextBlock 
+                   x:Name="TempXAML"
+                   Text="30°C"
+                   Foreground="#AD4A2B" 
+                   TextAlignment="Center"
+                   Margin="14,298,717,209"
+                   FontSize="150"
+                   FontFamily="Bodoni MT Condensed"
+                   />
+        <TextBlock 
+                   x:Name="WindXAML"
+                   Text="10 m/s"
+                   Foreground="#AD4A2B" 
+                   Margin="306,298,314,188"
+                   TextAlignment="Center"
+                   FontSize="150"
+                   FontFamily="Bodoni MT Condensed"
+                   />
+        <TextBlock 
+                   x:Name="HumidXAML"
+                   Text="100%"
+                   Foreground="#AD4A2B" 
+                   Margin="718,298,19,203"
+                   FontSize="150"
+                   TextAlignment="Center"
+                   FontFamily="Bodoni MT Condensed"
+                   />
+        <TextBlock 
+                   x:Name="TimeXAML" 
+                   Text="12:51"
+                   Foreground="#AD4A2B" 
+                   Margin="315,26,264,494"
+                   FontSize="80"
+                   FontFamily="Bodoni MT Condensed"
+                   TextAlignment="Center"
+                   />
+        <TextBlock 
+                   x:Name="CityXAML"
+                   Text="Новосибирск"
+                   Foreground="#AD4A2B" 
+                   Margin="286,188,228,366"
+                   FontSize="60"
+                   FontWeight="Bold"
+                   FontFamily="Bodoni MT Condensed"
+                   TextAlignment="Center"
+                   />
+
+        <Image Source="Images/Indicators/icons8-temperature-100.png"
+               Width="134"
+               Height="124"
+               VerticalAlignment="Top"
+               HorizontalAlignment="Right"
+               Margin="0,484,796,0"
+               Cursor="Hand" 
+               MouseLeftButtonDown="CloseApp"
+               />
+        <Image Source="Images/Indicators/icons8-wind-96.png"
+               Width="134"
+               Height="124"
+               VerticalAlignment="Top"
+               HorizontalAlignment="Center"
+               Margin="0,478,0,0"
+               Cursor="Hand" 
+               MouseLeftButtonDown="CloseApp"
+               />
+        <Image Source="Images/Indicators/icons8-moisture-100.png"
+               Width="134"
+               Height="124"
+               VerticalAlignment="Top"
+               HorizontalAlignment="Left"
+               Margin="786,478,0,0"
+               Cursor="Hand" 
+               MouseLeftButtonDown="CloseApp"
+               />
+        <Image Source="Images/Weather/icons8-cloud-lightning-100.png"
+               x:Name="Thunderstorm"
+               Width="134"
+               Height="124"
+               VerticalAlignment="Top"
+               HorizontalAlignment="Left"
+               Margin="711,26,0,0"
+               Cursor="" 
+               MouseLeftButtonDown="CloseApp"
+               Visibility="Hidden"
+               />
+        <Image Source="Images/Weather/icons8-cloud-100.png"
+               x:Name="Clouds"
+               Width="134"
+               Height="124"
+               VerticalAlignment="Top"
+               HorizontalAlignment="Left"
+               Margin="709,18,0,0"
+               Cursor="" 
+               MouseLeftButtonDown="CloseApp"
+               Visibility="Hidden"
+               />
+        <Image Source="Images/Weather/icons8-sun-100.png"
+               x:Name="Clear"
+               Width="134"
+               Height="124"
+               VerticalAlignment="Top"
+               HorizontalAlignment="Left"
+               Margin="709,20,0,0"
+               Cursor="" 
+               MouseLeftButtonDown="CloseApp"
+               Visibility="Hidden"
+               />
+        <Image Source="Images/Weather/icons8-rain-100.png"
+               x:Name="Rain"
+               Width="134"
+               Height="124"
+               VerticalAlignment="Top"
+               HorizontalAlignment="Left"
+               Margin="727,22,0,0"
+               Cursor="" 
+               MouseLeftButtonDown="CloseApp"
+               Visibility="Hidden"
+               />
+        <Image Source="Images/Weather/icons8-snow-100.png"
+               x:Name="Snow"
+               Width="134"
+               Height="124"
+               VerticalAlignment="Top"
+               HorizontalAlignment="Left"
+               Margin="705,22,0,0"
+               Cursor="" 
+               MouseLeftButtonDown="CloseApp"
+               Visibility="Hidden"
+               />
+
+        <Border x:Name="BorderXAML"
+                Width="800"
+                Height="400"
+                CornerRadius="20"
+                Margin="100 125"
+                Visibility="Hidden"
+                BorderBrush=
+                "#AD4A2B"
+                BorderThickness="7"
+                Background="#F7C7B1">
+            <Grid>
+                <TextBlock x:Name="ErrorConnectionTextXAML"
+                Foreground="#AD4A2B" 
+                Margin="20,118,20,117"
+                FontSize="60"
+                TextAlignment="Center"
+                VerticalAlignment="Center"
+                Text="Проверьте подключение&#10;к интернету!"
+                FontFamily="Bodoni MT Condensed"
+                Visibility="Hidden"
+                />
+                <TextBlock x:Name="ErrorServerTextXAML"
+                Foreground="#AD4A2B" 
+                Margin="20,118,20,117"
+                FontSize="45"
+                TextAlignment="Center"
+                VerticalAlignment="Center"
+                Text="Запрос превысил время ожидания.&#10;Попробуйте позже."
+                FontFamily="Bodoni MT Condensed"
+                Visibility="Hidden"
+                />
+                <TextBlock x:Name="ErrorAnotherTextXAML"
+                Foreground="#AD4A2B" 
+                Margin="20,118,20,117"
+                FontSize="43"
+                TextAlignment="Center"
+                VerticalAlignment="Center"
+                Text="Произошла непредвиденная ошибка.&#10;Попробуйте снова."
+                FontFamily="Bodoni MT Condensed"
+                Visibility="Hidden"
+                />
+                <Image Source="Images/icons8-no-internet-24.png"
+                   x:Name="NoConnectionXAML"
+                   Width="80"
+                   Height="80"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Right"  
+                   Margin="0,192,124,0"
+                  />
+                <Image Source="/Images/icons8-close-window-100.png" 
+                       Stretch="Fill"
+                       x:Name="CloseButtonXAML"
+                       MouseLeftButtonDown="CloseButtonErrorConnection"
+                       Width="70"
+                       Height="70"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Right"
+                       Margin="10 10"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

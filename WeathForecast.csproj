@@ -1,0 +1,70 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\icons8-cityscape-at-dusk-96.png" />
+    <None Remove="Images\icons8-close-window-100.png" />
+    <None Remove="Images\icons8-flying-duck-50.png" />
+    <None Remove="Images\icons8-moisture-100.png" />
+    <None Remove="Images\icons8-no-internet-24.png" />
+    <None Remove="Images\icons8-search-50.png" />
+    <None Remove="Images\icons8-shutdown-96.png" />
+    <None Remove="Images\icons8-temperature-100.png" />
+    <None Remove="Images\icons8-wind-96.png" />
+    <None Remove="Images\Weather\icons8-cloud-100.png" />
+    <None Remove="Images\Weather\icons8-cloud-lightning-100.png" />
+    <None Remove="Images\Weather\icons8-partly-cloudy-day-100.png" />
+    <None Remove="Images\Weather\icons8-rain-100.png" />
+    <None Remove="Images\Weather\icons8-snow-100.png" />
+    <None Remove="Images\Weather\icons8-sun-100.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Cloud.Translation.V2" Version="3.4.0" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.61" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="PexelsDotNetSDK" Version="1.0.11" />
+    <PackageReference Include="Selenium.Chrome.WebDriver" Version="85.0.0" />
+    <PackageReference Include="Selenium.WebDriver" Version="4.22.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\icons8-cityscape-at-dusk-96.png" />
+    <Resource Include="Images\icons8-close-window-100.png" />
+    <Resource Include="Images\icons8-flying-duck-50.png" />
+    <Resource Include="Images\icons8-no-internet-24.png" />
+    <Resource Include="Images\Indicators\icons8-moisture-100.png" />
+    <Resource Include="Images\icons8-search-50.png" />
+    <Resource Include="Images\icons8-shutdown-96.png" />
+    <Resource Include="Images\Indicators\icons8-temperature-100.png" />
+    <Resource Include="Images\Indicators\icons8-wind-96.png" />
+    <Resource Include="Images\Weather\icons8-cloud-100.png" />
+    <Resource Include="Images\Weather\icons8-cloud-lightning-100.png" />
+    <Resource Include="Images\Weather\icons8-partly-cloudy-day-100.png" />
+    <Resource Include="Images\Weather\icons8-rain-100.png" />
+    <Resource Include="Images\Weather\icons8-snow-100.png" />
+    <Resource Include="Images\Weather\icons8-sun-100.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\hasee\.nuget\packages\selenium.webdriver\4.22.0\buildTransitive\..\manager\linux\selenium-manager" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\hasee\.nuget\packages\selenium.webdriver\4.22.0\buildTransitive\..\manager\macos\selenium-manager" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\hasee\.nuget\packages\selenium.webdriver\4.22.0\buildTransitive\..\manager\windows\selenium-manager.exe" />
+  </ItemGroup>
+
+</Project>
